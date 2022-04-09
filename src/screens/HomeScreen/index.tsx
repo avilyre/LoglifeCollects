@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
 
 import uuid from "react-native-uuid";
+import { useTheme } from "styled-components";
 
 import { Card } from "../../components/Card";
 import { getCollects } from "../../services/getCollects";
@@ -12,10 +14,13 @@ import {
   Control,
   Icon,
   Title,
-  CardsList
+  CardsList,
+  ActivityIndicatorContainer
 } from "./styles";
 
 export function HomeScreen(): JSX.Element {
+  const theme = useTheme();
+
   const [collects, setCollects] = useState<Collect[]>([] as Collect[]);
 
   async function getCollectData() {
@@ -36,7 +41,12 @@ export function HomeScreen(): JSX.Element {
         </Control>
       </Header>
 
-      {collects && (
+      {collects.length === 0 ?
+        <ActivityIndicatorContainer>
+          <ActivityIndicator size="large" color={theme.colors.primary} />
+        </ActivityIndicatorContainer>
+      :
+      (
         <CardsList
           data={collects}
           keyExtractor={(item) => item.id}

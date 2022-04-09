@@ -53,3 +53,7 @@ export const CardsList = styled(
   top: ${RFPercentage(20)}px;
   left: 0;
 `;
+
+export const ActivityIndicatorContainer = styled.View`
+  padding-top: 26px;
+`;
