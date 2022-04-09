@@ -1,6 +1,8 @@
+import { FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons/";
 import { RFValue, RFPercentage } from "react-native-responsive-fontsize";
+import { Collect } from "../../services/interface";
 
 export const Container = styled.View`
   flex: 1;
@@ -36,8 +38,12 @@ export const Icon = styled(Feather)`
   margin-right: 10px;
 `;
 
-export const CardsList = styled.FlatList`
+export const CardsList = styled(
+  FlatList as new (props: FlatListProps<Collect>) => FlatList<Collect>
+)`
   flex: 1;
+
+  height: ${RFPercentage(87)}px;
 
   width: 100%;
 
