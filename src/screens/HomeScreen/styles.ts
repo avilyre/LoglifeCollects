@@ -35,3 +35,15 @@ export const Icon = styled(Feather)`
 
   margin-right: 10px;
 `;
+
+export const CardsList = styled.FlatList`
+  flex: 1;
+
+  width: 100%;
+
+  padding: 0 23px;
+  
+  position: absolute;
+  top: ${RFPercentage(20)}px;
+  left: 0;
+`;
