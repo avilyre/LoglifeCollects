@@ -17,7 +17,9 @@ export default {
       extraSmall: 12,
       small: 14,
       regular: 16,
-      medium: 18
+      medium: 18,
+      large: 24,
+      extraLarge: 30
     }
   }
 }
