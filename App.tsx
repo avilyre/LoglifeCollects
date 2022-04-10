@@ -6,12 +6,11 @@ import {
   Roboto_500Medium,
   Roboto_700Bold
 } from "@expo-google-fonts/roboto";
+import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
 import theme from './src/global/styles/theme';
-
-import { HomeScreen } from './src/screens/HomeScreen';
-import AppLoading from 'expo-app-loading';
+import { CollectDetailsScreen } from './src/screens/CollectDetailsScreen';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +25,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <HomeScreen />
+      <CollectDetailsScreen />
     </ThemeProvider>
   );
 }

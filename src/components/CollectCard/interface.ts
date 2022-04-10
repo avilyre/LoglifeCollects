@@ -12,5 +12,4 @@ export interface CollectCardItemProps {
 export interface CollectCardProps extends TouchableOpacityProps {
   items: CollectCardItemProps[];
   bottomButton?: ButtonProps;
-  onPress(): void;
 }

@@ -1,8 +1,10 @@
 import { FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
-import { CardItemProps } from "./interface";
+import { CollectCardItemProps } from "./interface";
 
 export const Container = styled.TouchableOpacity`
+  flex: 1;
+
   width: 100%;
 
   border-radius: 8px;
@@ -13,7 +15,7 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const ListItems = styled(
-  FlatList as new (props: FlatListProps<CardItemProps>) => FlatList<CardItemProps>
+  FlatList as new (props: FlatListProps<CollectCardItemProps>) => FlatList<CollectCardItemProps>
 )`
   flex: 1;
 

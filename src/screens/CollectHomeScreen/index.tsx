@@ -18,7 +18,7 @@ import {
   ActivityIndicatorContainer
 } from "./styles";
 
-export function HomeScreen(): JSX.Element {
+export function CollectsHomeScreen(): JSX.Element {
   const theme = useTheme();
 
   const [collects, setCollects] = useState<Collect[]>([] as Collect[]);
