@@ -4,7 +4,7 @@ import { ActivityIndicator } from "react-native";
 import uuid from "react-native-uuid";
 import { useTheme } from "styled-components";
 
-import { Card } from "../../components/Card";
+import { CollectCard } from "../../components/CollectCard";
 import { getCollects } from "../../services/getCollects";
 import { Collect } from "../../services/interface";
 
@@ -14,7 +14,7 @@ import {
   Control,
   Icon,
   Title,
-  CardsList,
+  CollectCardList,
   ActivityIndicatorContainer
 } from "./styles";
 
@@ -47,11 +47,11 @@ export function HomeScreen(): JSX.Element {
         </ActivityIndicatorContainer>
       :
       (
-        <CardsList
+        <CollectCardList
           data={collects}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <Card
+            <CollectCard
               items={[
                 {
                   id: uuid.v4() as string,

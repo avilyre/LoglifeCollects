@@ -38,7 +38,7 @@ export const Icon = styled(Feather)`
   margin-right: 10px;
 `;
 
-export const CardsList = styled(
+export const CollectCardList = styled(
   FlatList as new (props: FlatListProps<Collect>) => FlatList<Collect>
 )`
   flex: 1;

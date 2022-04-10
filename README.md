@@ -4,7 +4,7 @@ Se você precisa fazer coletas, embarques e desembarques de forma descomplicada,
 
 ### Features
 
-- *:pencil: em desenvolvimento*
+- *:pencil: Listagem da coletas disponíveis*
 
 ### Tecnologias
 

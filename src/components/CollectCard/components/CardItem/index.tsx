@@ -9,7 +9,7 @@ import {
   Description
 } from "./styles";
 
-export function CardItem({ icon, title, description }: CardItemProps): JSX.Element {
+export function CollectCardItem({ icon, title, description }: CardItemProps): JSX.Element {
   return (
     <Container>
       <Icon name={icon} />
