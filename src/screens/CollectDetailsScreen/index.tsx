@@ -3,36 +3,22 @@ import React from "react";
 import uuid from "react-native-uuid";
 
 import { CollectCard } from "../../components/CollectCard";
+import { Header } from "../../components/Header";
 
 import {
   Container,
-  Header,
-  Control,
-  Icon,
-  Title,
-  ContentContainer,
-  HeaderButton,
-  HeaderButtonIcon,
-  HeaderTitleContainer,
-  EmptyContainer
+  ContentContainer
 } from "./styles";
 
 export function CollectDetailsScreen(): JSX.Element {
 
   return (
     <Container>
-      <Header>
-        <Control>
-          <HeaderButton>
-            <HeaderButtonIcon name="arrow-left" />
-          </HeaderButton>
-          <HeaderTitleContainer>
-            <Icon name="eye" />
-            <Title>Detalhes</Title>
-          </HeaderTitleContainer>
-          <EmptyContainer />
-        </Control>
-      </Header>
+      <Header
+        title="Detalhes"
+        icon="eye"
+        // isDetails
+      />
 
       <ContentContainer>
         <CollectCard

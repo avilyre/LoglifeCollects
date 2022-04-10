@@ -7,13 +7,10 @@ import { useTheme } from "styled-components";
 import { CollectCard } from "../../components/CollectCard";
 import { getCollects } from "../../services/getCollects";
 import { Collect } from "../../services/interface";
+import { Header } from "../../components/Header";
 
 import {
   Container,
-  Header,
-  Control,
-  Icon,
-  Title,
   CollectCardList,
   ActivityIndicatorContainer
 } from "./styles";
@@ -34,12 +31,10 @@ export function CollectsHomeScreen(): JSX.Element {
 
   return (
     <Container>
-      <Header>
-        <Control>
-          <Icon name="truck" />
-          <Title>Coletas</Title>
-        </Control>
-      </Header>
+      <Header
+        title="Coletas"
+        icon="truck"
+      />
 
       {collects.length === 0 ?
         <ActivityIndicatorContainer>
