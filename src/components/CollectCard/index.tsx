@@ -13,7 +13,7 @@ export function CollectCard({
   ...props
 }: CollectCardProps): JSX.Element {
   return (
-    <Container {...props}>
+    <Container {...props} activeOpacity={0.7}>
       <ListItems
         data={items}
         keyExtractor={(item) => item.id}

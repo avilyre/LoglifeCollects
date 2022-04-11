@@ -1,6 +1,7 @@
 import { RFValue } from "react-native-responsive-fontsize";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
+import { ControlProps } from "./interface";
 
 export const Container = styled.View`
   height: ${RFValue(173)}px;
@@ -12,9 +13,13 @@ export const Container = styled.View`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-export const Control = styled.View`
+export const Control = styled.View<ControlProps>`
   flex-direction: row;
   align-items: center;
+
+  ${({ isEnableRightIcon }) => isEnableRightIcon && css`
+    justify-content: space-between;
+  `}
 
   width: 100%;
   padding: 0 23px;
@@ -33,7 +38,7 @@ export const ButtonContainer = styled.TouchableOpacity`
 
 export const ButtonIcon = styled(Feather)`
   color: ${({ theme }) => theme.colors.shape};
-  font-size: ${({ theme }) => RFValue(theme.font.size.large)}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.medium)}px;
 `;
 
 export const TitleContainer = styled.View`

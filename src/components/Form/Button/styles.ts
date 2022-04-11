@@ -2,9 +2,7 @@ import styled, { css } from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { ButtonProps } from "./interface";
 
-export const Container = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.6
-})<Pick<ButtonProps, "type">>`
+export const Container = styled.TouchableOpacity<Pick<ButtonProps, "type">>`
   align-items: center;
   justify-content: center;
 

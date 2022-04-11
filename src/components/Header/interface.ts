@@ -1,9 +1,16 @@
+interface CustomIcon {
+  icon: string;
+  onPress(): void;
+}
+
 export interface HeaderProps {
   title: string;
   icon?: string;
   isDetails?: boolean;
-  customLeftIcon?: {
-    icon: string;
-    onPress(): void;
-  }
+  customLeftIcon?: CustomIcon
+  customRightIcon?: CustomIcon
+}
+
+export interface ControlProps {
+  isEnableRightIcon?: boolean;
 }

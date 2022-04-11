@@ -12,10 +12,18 @@ import {
   Title
 } from "./styles";
 
-export function Header({ title, icon, isDetails, customLeftIcon }: HeaderProps): JSX.Element {
+export function Header({
+  title,
+  icon,
+  isDetails,
+  customLeftIcon,
+  customRightIcon
+}: HeaderProps): JSX.Element {
   return (
     <Container>
-      <Control>
+      <Control
+        isEnableRightIcon={!!customRightIcon}
+      >
         {customLeftIcon && (
           <ButtonContainer onPress={customLeftIcon.onPress}>
             <ButtonIcon name={customLeftIcon.icon} />
@@ -31,6 +39,12 @@ export function Header({ title, icon, isDetails, customLeftIcon }: HeaderProps):
           {icon && <TitleIcon name={icon} />}
           <Title>{title}</Title>
         </TitleContainer>
+
+        {customRightIcon && (
+          <ButtonContainer onPress={customRightIcon.onPress}>
+            <ButtonIcon name={customRightIcon.icon} />
+          </ButtonContainer>
+        )}
       </Control>
     </Container>
   );

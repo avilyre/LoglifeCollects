@@ -34,6 +34,10 @@ export function CollectsHomeScreen(): JSX.Element {
       <Header
         title="Coletas"
         icon="truck"
+        customRightIcon={{
+          icon: "power",
+          onPress: () => {}
+        }}
       />
 
       {collects.length === 0 ?
