@@ -22,7 +22,7 @@ export const Control = styled.View`
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.font.family.medium};
-  font-size: ${({ theme }) => RFValue(theme.font.size.large)}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.medium)}px;
   color: ${({ theme }) => theme.colors.shape};
 `;
 
@@ -43,7 +43,7 @@ export const TitleContainer = styled.View`
 
 export const TitleIcon = styled(Feather)`
   color: ${({ theme }) => theme.colors.shape};
-  font-size: ${({ theme }) => RFValue(theme.font.size.large)}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.medium)}px;
 
   margin-right: 10px;
 `;
