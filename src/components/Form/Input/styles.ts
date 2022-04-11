@@ -1,3 +1,4 @@
+import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
 
 import { InputProps } from "./interface";
@@ -14,7 +15,7 @@ export const Container = styled.View<Pick<InputProps, "isSide">>`
 
 export const Label = styled.Text`
   font-family: ${({ theme }) => theme.font.family.bold};
-  font-size: ${({ theme }) => theme.font.size.small}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.extraSmall)}px;
   color: ${({ theme }) => theme.colors.text};
 
   margin-left: 6px;
@@ -27,7 +28,7 @@ export const InputText = styled.TextInput`
   border-radius: 8px;
 
   font-family: ${({ theme }) => theme.font.family.regular};
-  font-size: ${({ theme }) => theme.font.size.medium}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.small)}px;
   
   background: ${({ theme }) => theme.colors.shape};
 `;
