@@ -10,8 +10,7 @@ import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
 import theme from './src/global/styles/theme';
-import { CollectsHomeScreen } from './src/screens/CollectHomeScreen';
-import { LaunchSuccessScreen } from './src/screens/LaunchSuccessScreen';
+import { LoginScreen } from './src/screens/LoginScreen';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +25,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <LaunchSuccessScreen />
+      <LoginScreen />
     </ThemeProvider>
   );
 }
