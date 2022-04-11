@@ -9,14 +9,19 @@ import {
   ButtonIcon,
   TitleContainer,
   TitleIcon,
-  Title,
-  EmptyContainer
+  Title
 } from "./styles";
 
-export function Header({ title, icon, isDetails }: HeaderProps): JSX.Element {
+export function Header({ title, icon, isDetails, customLeftIcon }: HeaderProps): JSX.Element {
   return (
     <Container>
       <Control>
+        {customLeftIcon && (
+          <ButtonContainer onPress={customLeftIcon.onPress}>
+            <ButtonIcon name={customLeftIcon.icon} />
+          </ButtonContainer>
+        )}
+
         {isDetails && (
           <ButtonContainer>
             <ButtonIcon name="arrow-left" />
