@@ -1,9 +1,15 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
-export const Container = styled.View`
-  width: 100%;
+import { InputProps } from "./interface";
 
-  padding: 16px;
+export const Container = styled.View<Pick<InputProps, "isSide">>`
+  ${({ isSide }) => isSide ?
+    css`width: 48%;`
+    :
+    css`width: 100%;`
+  }
+  
+  margin-bottom: 23px;
 `;
 
 export const Label = styled.Text`

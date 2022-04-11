@@ -21,7 +21,7 @@ export const CollectCardList = styled(
   padding: 0 23px;
   
   position: absolute;
-  top: ${RFPercentage(20)}px;
+  top: ${RFPercentage(19.6)}px;
   left: 0;
 `;
 

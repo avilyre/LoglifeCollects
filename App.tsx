@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 
 import theme from './src/global/styles/theme';
 import { CollectDetailsScreen } from './src/screens/CollectDetailsScreen';
+import { CollectLaunchScreen } from './src/screens/CollectLaunchScreen';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +26,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CollectDetailsScreen />
+      <CollectLaunchScreen />
     </ThemeProvider>
   );
 }
