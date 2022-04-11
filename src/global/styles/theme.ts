@@ -1,7 +1,7 @@
 export default {
   colors: {
     primary: "#5D5FEF",
-    success: "#4ED25B",
+    success: "#5BC265",
     warning: "#FF9E44",
     danger: "#EF5D5D",
     text: "#818181",
