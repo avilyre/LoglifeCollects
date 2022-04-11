@@ -1,6 +1,6 @@
 import { TouchableOpacityProps } from "react-native";
 
-import { ButtonProps } from "../Button/interface";
+import { ButtonProps } from "../Form/Button/interface";
 
 export interface CollectCardItemProps {
   id: string;

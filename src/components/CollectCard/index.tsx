@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button";
+import { Button } from "../Form/Button";
 import { Divider } from "../Divider";
 
 import { CollectCardItem } from "./components/CardItem";

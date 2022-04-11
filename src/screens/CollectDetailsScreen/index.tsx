@@ -17,7 +17,7 @@ export function CollectDetailsScreen(): JSX.Element {
       <Header
         title="Detalhes"
         icon="eye"
-        // isDetails
+        isDetails
       />
 
       <ContentContainer>
