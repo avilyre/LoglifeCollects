@@ -10,7 +10,7 @@ export const Container = styled.View`
 `;
 
 export const Icon = styled(Feather)`
-  font-size: ${({ theme }) => RFValue(theme.font.size.extraLarge)}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.large)}px;
   color: ${({ theme }) => theme.colors.primary};
 
   margin-right: 22px;
@@ -24,7 +24,7 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   font-family: ${({ theme }) => theme.font.family.regular};
-  font-size: ${({ theme }) => RFValue(theme.font.size.regular)}px;
+  font-size: ${({ theme }) => RFValue(theme.font.size.small)}px;
   color: ${({ theme }) => theme.colors.text};
 `;
 
