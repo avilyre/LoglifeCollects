@@ -1,10 +1,17 @@
 import React from "react";
 
 import { Button } from "../../components/Form/Button";
+import { ScreenNames } from "../../routes/interface";
+import { LaunchSuccessScreenProps } from "./interface";
 
 import { Container, Icon, Title } from "./styles";
 
-export function LaunchSuccessScreen(): JSX.Element {
+export function LaunchSuccessScreen({ navigation }: LaunchSuccessScreenProps): JSX.Element {
+
+  function handleContinue() {
+    navigation.push(ScreenNames.CollectHomeScreen);
+  }
+
   return (
     <Container>
       <Icon name="check-circle" />
@@ -12,7 +19,7 @@ export function LaunchSuccessScreen(): JSX.Element {
       <Button
         title="Continuar"
 
-        onPress={() => {}}
+        onPress={handleContinue}
       />
     </Container>
   );
