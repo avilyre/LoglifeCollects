@@ -9,13 +9,17 @@ import { getCollects } from "../../services/getCollects";
 import { Collect } from "../../services/getCollects/interface";
 import { Header } from "../../components/Header";
 
+import { ScreenNames } from "../../routes/interface";
+import { CollectHomeScreenProps } from "./interface";
+
 import {
   Container,
   CollectCardList,
   ActivityIndicatorContainer
 } from "./styles";
 
-export function CollectsHomeScreen(): JSX.Element {
+
+export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.Element {
   const theme = useTheme();
 
   const [collects, setCollects] = useState<Collect[]>([] as Collect[]);
@@ -23,6 +27,10 @@ export function CollectsHomeScreen(): JSX.Element {
   async function getCollectData() {
     const result = await getCollects();
     setCollects(result);
+  }
+
+  function handleLogout() {
+    navigation.navigate(ScreenNames.LoginScreen);
   }
 
   useEffect(() => {
@@ -36,7 +44,7 @@ export function CollectsHomeScreen(): JSX.Element {
         icon="truck"
         customRightIcon={{
           icon: "power",
-          onPress: () => {}
+          onPress: handleLogout
         }}
       />
 

@@ -8,10 +8,10 @@ import {
 } from "@expo-google-fonts/roboto";
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
+import { NavigationContainer } from "@react-navigation/native";
 
 import theme from './src/global/styles/theme';
-import { CollectsHomeScreen } from './src/screens/CollectHomeScreen';
-import { LoginScreen } from './src/screens/LoginScreen';
+import { AppRoutes } from './src/routes/app.routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +26,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <LoginScreen />
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }

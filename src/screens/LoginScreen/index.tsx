@@ -11,8 +11,10 @@ import { formSchema } from "./utils";
 
 import { getUserLogin } from "../../services/getLogin";
 import { UserLoginParams } from "../../services/getLogin/interface";
+import { ScreenNames } from "../../routes/interface";
+import { LoginScreenProps } from "./interface";
 
-export function LoginScreen(): JSX.Element {
+export function LoginScreen({ navigation }: LoginScreenProps): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(formSchema)
@@ -27,7 +29,7 @@ export function LoginScreen(): JSX.Element {
     });
 
     if (result.length !== 0) {
-      reset();
+      navigation.navigate(ScreenNames.CollectHomeScreen);
     }
 
     setIsLoading(false);
