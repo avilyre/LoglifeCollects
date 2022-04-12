@@ -1,10 +1,17 @@
 {
   "expo": {
-    "name": "loglife-collects",
+    "name": "Loglife Collects",
     "slug": "loglife-collects",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#5D5FEF"
+    },
+    "android": {
+      "package": "com.avilysilva.loglifecollects"
+    }
   }
 }

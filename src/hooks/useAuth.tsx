@@ -36,8 +36,11 @@ export function AuthProvider({ children }): JSX.Element {
 
     if (userData.length !== 0) {
       await AsyncStorage.setItem(StorageKeys.user, JSON.stringify(userData[0]));
-      setUser(userData[0]);
+      setIsLoading(false);
+      return setUser(userData[0]);
     }
+
+    Alert.alert("Loglife", "E-mail ou senha incorreta");
 
     setIsLoading(false);
   }, []);
@@ -52,9 +55,8 @@ export function AuthProvider({ children }): JSX.Element {
       const userData = await AsyncStorage.getItem(StorageKeys.user);
   
       if (userData !== null) {
-        setUser(JSON.parse(userData));
+        return setUser(JSON.parse(userData));
       }
-
     } catch(err) {
       Alert.alert("Loglife", "Não foi possível fazer o login");
       console.warn(err);
