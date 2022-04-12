@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import { ActivityIndicator } from "react-native";
 
 import uuid from "react-native-uuid";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "styled-components";
 
 import { CollectCard } from "../../components/CollectCard";
@@ -17,11 +19,13 @@ import {
   CollectCardList,
   ActivityIndicatorContainer
 } from "./styles";
+import { StorageKeys } from "../../constants/storageKeys";
+import { useAuth } from "../../hooks/useAuth";
 
 
 export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.Element {
   const theme = useTheme();
-
+  const { signOut } = useAuth();
   const [collects, setCollects] = useState<Collect[]>([] as Collect[]);
 
   async function getCollectData() {
@@ -29,8 +33,8 @@ export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.
     setCollects(result);
   }
 
-  function handleLogout() {
-    navigation.navigate(ScreenNames.LoginScreen);
+  async function handleLogout() {
+    signOut();
   }
 
   useEffect(() => {

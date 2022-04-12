@@ -8,21 +8,31 @@ import { CollectsHomeScreen } from "../screens/CollectHomeScreen";
 import { CollectDetailsScreen } from "../screens/CollectDetailsScreen";
 import { CollectLaunchScreen } from "../screens/CollectLaunchScreen";
 import { LaunchSuccessScreen } from "../screens/LaunchSuccessScreen";
+import { useAuth } from "../hooks/useAuth";
+import AppLoading from "expo-app-loading";
 
 const { Navigator, Screen } = createNativeStackNavigator<RoutesParams>();
 
+
 export function AppRoutes(): JSX.Element {
+  const { user } = useAuth();
+
   return (
     <Navigator
       screenOptions={{
         headerShown: false
       }}
     >
-      <Screen name={ScreenNames.LoginScreen} component={LoginScreen} />
-      <Screen name={ScreenNames.CollectHomeScreen} component={CollectsHomeScreen} />
-      <Screen name={ScreenNames.CollectDetailsScreen} component={CollectDetailsScreen} />
-      <Screen name={ScreenNames.CollectLaunchScreen} component={CollectLaunchScreen} />
-      <Screen name={ScreenNames.LaunchSuccessScreen} component={LaunchSuccessScreen} />
+      {user !== undefined ? (
+        <>
+          <Screen name={ScreenNames.CollectHomeScreen} component={CollectsHomeScreen} />
+          <Screen name={ScreenNames.CollectDetailsScreen} component={CollectDetailsScreen} />
+          <Screen name={ScreenNames.CollectLaunchScreen} component={CollectLaunchScreen} />
+          <Screen name={ScreenNames.LaunchSuccessScreen} component={LaunchSuccessScreen} />
+        </>
+      ) : (
+        <Screen name={ScreenNames.LoginScreen} component={LoginScreen} />
+      )}
     </Navigator>
   );
 }

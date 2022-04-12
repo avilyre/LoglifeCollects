@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
+import { Keyboard } from "react-native";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -9,34 +10,22 @@ import { InputForm } from "../../components/Form/InputForm";
 import { CardPanel, Container, Title } from "./styles";
 import { formSchema } from "./utils";
 
-import { getUserLogin } from "../../services/getLogin";
 import { UserLoginParams } from "../../services/getLogin/interface";
-import { ScreenNames } from "../../routes/interface";
-import { LoginScreenProps } from "./interface";
-import { Alert } from "react-native";
+import { useAuth } from "../../hooks/useAuth";
 
-export function LoginScreen({ navigation }: LoginScreenProps): JSX.Element {
-  const [isLoading, setIsLoading] = useState(false);
+export function LoginScreen(): JSX.Element {
+  const { isLoading, signIn } = useAuth();
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(formSchema)
   });
 
-  async function handleLoginSubmit(user: UserLoginParams) {
-    setIsLoading(true);
+  function handleLoginSubmit(user: UserLoginParams) {
+    Keyboard.dismiss();
 
-    const result = await getUserLogin({
+    signIn({
       email: user.email,
       password: user.password
     });
-
-    if (result.length === 0) {
-      setIsLoading(false);
-      Alert.alert("Loglife", "E-mail ou senha incorreta");
-      return;
-    }
-    
-    navigation.navigate(ScreenNames.CollectHomeScreen);
-    setIsLoading(false);
   }
 
   return (
