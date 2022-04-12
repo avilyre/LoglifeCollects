@@ -5,7 +5,7 @@ export function getCollects(): Promise<Collect[]> {
   let result = new Promise<Collect[]>(resolve => {
     setTimeout(() => {
       resolve(collects);
-    }, 2000);
+    }, 1000);
   });
   return result;
 }
