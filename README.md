@@ -4,7 +4,10 @@ Se você precisa fazer coletas, embarques e desembarques de forma descomplicada,
 
 ### Features
 
+- *:pencil: Login de usuário*
 - *:pencil: Listagem da coletas disponíveis*
+- *:pencil: Ver coletas detalhadamente*
+- *:pencil: Fazer lançamento de coletas*
 
 ### Tecnologias
 
