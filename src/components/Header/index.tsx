@@ -1,5 +1,7 @@
 import React from "react";
-import { Input } from "../Form/Input";
+
+import { useNavigation } from "@react-navigation/native";
+
 import { HeaderProps } from "./interface";
 
 import {
@@ -19,6 +21,8 @@ export function Header({
   customLeftIcon,
   customRightIcon
 }: HeaderProps): JSX.Element {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Control
@@ -31,7 +35,7 @@ export function Header({
         )}
 
         {isDetails && (
-          <ButtonContainer>
+          <ButtonContainer onPress={navigation.goBack}>
             <ButtonIcon name="arrow-left" />
           </ButtonContainer>
         )}

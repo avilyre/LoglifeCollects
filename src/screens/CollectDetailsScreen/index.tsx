@@ -10,7 +10,8 @@ import {
   ContentContainer
 } from "./styles";
 
-export function CollectDetailsScreen(): JSX.Element {
+export function CollectDetailsScreen({ route }): JSX.Element {
+  const { client, date, address } = route.params.data;
 
   return (
     <Container>
@@ -28,25 +29,19 @@ export function CollectDetailsScreen(): JSX.Element {
               id: uuid.v4() as string,
               icon: "users",
               title: "Cliente",
-              description: "Fluery Company",
+              description: client,
             },
             {
               id: uuid.v4()  as string,
               icon: "calendar",
               title: "Data",
-              description: "28/01/2022",
+              description: date,
             },
             {
               id: uuid.v4()  as string,
-              icon: "clock",
-              title: "Horário",
-              description: "13:00 ás 17:00",
-            },
-            {
-              id: uuid.v4()  as string,
-              icon: "tag",
-              title: "Remetente",
-              description: "Unimed Company",
+              icon: "map-pin",
+              title: "Endereço",
+              description: address,
             }
           ]}
           bottomButton={{

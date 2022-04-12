@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
 
 import uuid from "react-native-uuid";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "styled-components";
 
 import { CollectCard } from "../../components/CollectCard";
@@ -19,8 +18,9 @@ import {
   CollectCardList,
   ActivityIndicatorContainer
 } from "./styles";
-import { StorageKeys } from "../../constants/storageKeys";
+
 import { useAuth } from "../../hooks/useAuth";
+import { CollectDetailsScreenParams } from "../CollectDetailsScreen/interface";
 
 
 export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.Element {
@@ -33,8 +33,18 @@ export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.
     setCollects(result);
   }
 
-  async function handleLogout() {
+  function handleLogout() {
     signOut();
+  }
+
+  function handleCollectCard(collect: Collect) {
+    console.log(collect);
+    const data: CollectDetailsScreenParams = {
+      client: collect.remetente,
+      date: collect.collect_date,
+      address: collect.street
+    }
+    navigation.navigate(ScreenNames.CollectDetailsScreen, { data });
   }
 
   useEffect(() => {
@@ -77,7 +87,7 @@ export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.
                   description: item.collect_date,
                 }
               ]}
-              onPress={() => {}}
+              onPress={() => handleCollectCard(item)}
             />
           )}
         />

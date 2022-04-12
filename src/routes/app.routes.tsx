@@ -9,7 +9,6 @@ import { CollectDetailsScreen } from "../screens/CollectDetailsScreen";
 import { CollectLaunchScreen } from "../screens/CollectLaunchScreen";
 import { LaunchSuccessScreen } from "../screens/LaunchSuccessScreen";
 import { useAuth } from "../hooks/useAuth";
-import AppLoading from "expo-app-loading";
 
 const { Navigator, Screen } = createNativeStackNavigator<RoutesParams>();
 

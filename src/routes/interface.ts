@@ -1,3 +1,5 @@
+import { CollectDetailsScreenParams } from "../screens/CollectDetailsScreen/interface";
+
 export enum ScreenNames {
   LoginScreen = "LoginScreen",
   CollectHomeScreen = "CollectHomeScreen",
@@ -9,7 +11,9 @@ export enum ScreenNames {
 export type RoutesParams = {
   LoginScreen: {};
   CollectHomeScreen: {};
-  CollectDetailsScreen: {};
+  CollectDetailsScreen: {
+    data: CollectDetailsScreenParams
+  };
   CollectLaunchScreen: {};
   LaunchSuccessScreen: {};
 }
