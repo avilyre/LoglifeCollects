@@ -4,14 +4,23 @@ import uuid from "react-native-uuid";
 
 import { CollectCard } from "../../components/CollectCard";
 import { Header } from "../../components/Header";
+import { ScreenNames } from "../../routes/interface";
+import { CollectDetailsScreenProps } from "./interface";
 
 import {
   Container,
   ContentContainer
 } from "./styles";
 
-export function CollectDetailsScreen({ route }): JSX.Element {
-  const { client, date, address } = route.params.data;
+export function CollectDetailsScreen({
+  route,
+  navigation
+}: CollectDetailsScreenProps): JSX.Element {
+  const { client, date, address } = route.params.collectData;
+
+  function handleLaunchCollect() {
+    navigation.navigate(ScreenNames.CollectLaunchScreen);
+  }
 
   return (
     <Container>
@@ -46,9 +55,8 @@ export function CollectDetailsScreen({ route }): JSX.Element {
           ]}
           bottomButton={{
             title: "Lançar coleta",
-            onPress: () => {}
+            onPress: () => handleLaunchCollect()
           }}
-          onPress={() => {}}
         />
       </ContentContainer>
     </Container>

@@ -38,13 +38,13 @@ export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.
   }
 
   function handleCollectCard(collect: Collect) {
-    console.log(collect);
-    const data: CollectDetailsScreenParams = {
+    const collectData: CollectDetailsScreenParams = {
       client: collect.remetente,
       date: collect.collect_date,
       address: collect.street
     }
-    navigation.navigate(ScreenNames.CollectDetailsScreen, { data });
+
+    navigation.navigate(ScreenNames.CollectDetailsScreen, { collectData });
   }
 
   useEffect(() => {
