@@ -13,6 +13,7 @@ import { getUserLogin } from "../../services/getLogin";
 import { UserLoginParams } from "../../services/getLogin/interface";
 import { ScreenNames } from "../../routes/interface";
 import { LoginScreenProps } from "./interface";
+import { Alert } from "react-native";
 
 export function LoginScreen({ navigation }: LoginScreenProps): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,10 +29,13 @@ export function LoginScreen({ navigation }: LoginScreenProps): JSX.Element {
       password: user.password
     });
 
-    if (result.length !== 0) {
-      navigation.navigate(ScreenNames.CollectHomeScreen);
+    if (result.length === 0) {
+      setIsLoading(false);
+      Alert.alert("Loglife", "E-mail ou senha incorreta");
+      return;
     }
-
+    
+    navigation.navigate(ScreenNames.CollectHomeScreen);
     setIsLoading(false);
   }
 
