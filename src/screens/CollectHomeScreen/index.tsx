@@ -10,7 +10,7 @@ import { getCollects } from "../../services/getCollects";
 import { Collect } from "../../services/getCollects/interface";
 import { Header } from "../../components/Header";
 
-import { ScreenNames } from "../../routes/interface";
+import { CollectData, ScreenNames } from "../../routes/interface";
 import { CollectHomeScreenProps } from "./interface";
 
 import {
@@ -20,8 +20,6 @@ import {
 } from "./styles";
 
 import { useAuth } from "../../hooks/useAuth";
-import { CollectDetailsScreenParams } from "../CollectDetailsScreen/interface";
-
 
 export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.Element {
   const theme = useTheme();
@@ -38,7 +36,7 @@ export function CollectsHomeScreen({ navigation }: CollectHomeScreenProps): JSX.
   }
 
   function handleCollectCard(collect: Collect) {
-    const collectData: CollectDetailsScreenParams = {
+    const collectData: CollectData = {
       client: collect.remetente,
       date: collect.collect_date,
       address: collect.street
