@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,17 +9,28 @@ import { InputForm } from "../../components/Form/InputForm";
 import { CardPanel, Container, Title } from "./styles";
 import { formSchema } from "./utils";
 
+import { getUserLogin } from "../../services/getLogin";
+import { UserLoginParams } from "../../services/getLogin/interface";
+
 export function LoginScreen(): JSX.Element {
-  const { control, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(formSchema),
-    defaultValues: {
-      email: "",
-      password: ""
-    }
+  const [isLoading, setIsLoading] = useState(false);
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
+    resolver: yupResolver(formSchema)
   });
 
-  function handleLoginSubmit(data: any) {
-    console.log(data);
+  async function handleLoginSubmit(user: UserLoginParams) {
+    setIsLoading(true);
+
+    const result = await getUserLogin({
+      email: user.email,
+      password: user.password
+    });
+
+    if (result.length !== 0) {
+      reset();
+    }
+
+    setIsLoading(false);
   }
 
   return (
@@ -29,8 +40,10 @@ export function LoginScreen(): JSX.Element {
         <InputForm
           name="email"
           label="E-mail"
+          keyboardType="email-address"
           placeholder="Ex. joao@exemplo.com"
           control={control}
+          autoCapitalize="none"
           error={errors.email && errors.email.message}
         />
 
@@ -45,6 +58,7 @@ export function LoginScreen(): JSX.Element {
 
         <Button
           title="Entrar"
+          isLoading={isLoading}
           onPress={handleSubmit(handleLoginSubmit)}
         />
       </CardPanel>

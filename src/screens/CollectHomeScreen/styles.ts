@@ -1,7 +1,7 @@
 import { FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { Collect } from "../../services/interface";
+import { Collect } from "../../services/getCollects/interface";
 
 export const Container = styled.View`
   flex: 1;

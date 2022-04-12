@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 
 import { CollectCard } from "../../components/CollectCard";
 import { getCollects } from "../../services/getCollects";
-import { Collect } from "../../services/interface";
+import { Collect } from "../../services/getCollects/interface";
 import { Header } from "../../components/Header";
 
 import {
