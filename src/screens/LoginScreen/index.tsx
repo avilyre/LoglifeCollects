@@ -26,6 +26,8 @@ export function LoginScreen(): JSX.Element {
       email: user.email,
       password: user.password
     });
+
+    reset();
   }
 
   return (
