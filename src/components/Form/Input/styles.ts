@@ -32,3 +32,12 @@ export const InputText = styled.TextInput`
   
   background: ${({ theme }) => theme.colors.shape};
 `;
+
+export const TextError = styled.Text`
+  font-family: ${({ theme }) => theme.font.family.regular};
+  font-size: ${({ theme }) => RFValue(theme.font.size.extraSmall)}px;
+  color: ${({ theme }) => theme.colors.danger};
+
+  margin-top: 5px;
+  margin-left: 10px;
+`;
